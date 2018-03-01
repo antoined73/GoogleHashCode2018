@@ -1,4 +1,6 @@
+import TuLeC.Obj.Context;
 import TuLeC.Reader.FileParser;
+import TuLeC.process.SimpleProcess;
 
 public class Main {
 
@@ -6,6 +8,11 @@ public class Main {
         FileParser parser = new FileParser("ressources/e_high_bonus.in");
         try {
             parser.exec();
+            Context context = parser.getContext();
+            SimpleProcess proc = new SimpleProcess(context.getCars(),context.getRides());
+            proc.process();
+
+            System.out.println(context.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
