@@ -27,10 +27,19 @@ public class Context {
 
     @Override
     public String toString(){
-        String msg = "Contexte : Ville "+rows+" x "+columns+", "+numberOfRides+" trajets à faire avec "+numberOfVehicles+" voitures en "+numberOfSteps+" steps.\n";
+        StringBuilder res = new StringBuilder();
         for (Ride ride: rides) {
-            msg+=ride.toDebugString()+"\n";
+            res.append(ride.toString());
         }
-        return msg;
+        return res.toString();
+    }
+
+    public String stringDebug(){
+        StringBuilder msg = new StringBuilder("Contexte : Ville " + rows + " x " + columns + ", "
+                + numberOfRides + " trajets à faire avec " + numberOfVehicles + " voitures en " + numberOfSteps + " steps.\n");
+        for (Ride ride: rides) {
+            msg.append(ride.toDebugString()).append("\n");
+        }
+        return msg.toString();
     }
 }
