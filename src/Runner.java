@@ -1,6 +1,7 @@
 import TuLeC.Obj.Context;
 import TuLeC.Reader.FileParser;
 import TuLeC.Writer.FileWriter;
+import TuLeC.process.MarcoProcess;
 import TuLeC.process.SimpleProcess;
 
 import java.io.File;
@@ -32,7 +33,7 @@ public class Runner {
         try {
             parser.exec();
             Context context = parser.getContext();
-            SimpleProcess proc = new SimpleProcess(context.getCars(),context.getRides());
+            MarcoProcess proc = new MarcoProcess(context.getCars(),context.getRides());
             proc.process();
             FileWriter fileWriter = new FileWriter(context.getCars());
             fileWriter.exec(OUTPUT_FOLDER +inputFilename.replace(".in",".out"));

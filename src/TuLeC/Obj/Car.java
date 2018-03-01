@@ -38,7 +38,13 @@ public class Car {
         int total = 0;
         Intersection position = new Intersection(0, 0);
         for (Ride r : rides) {
-            total += position.getDistanceFrom(r.startPoint) + r.startPoint.getDistanceFrom(r.endPoint);
+            if(position.getDistanceFrom(r.startPoint) + total < r.earliestStart){
+                total += (r.earliestStart - total) + r.startPoint.getDistanceFrom(r.endPoint);
+                System.out.println(r.startPoint.getDistanceFrom(r.endPoint));
+            }
+            else{
+                total += position.getDistanceFrom(r.startPoint) + r.startPoint.getDistanceFrom(r.endPoint);
+            }
             position = r.endPoint;
         }
         return total;
