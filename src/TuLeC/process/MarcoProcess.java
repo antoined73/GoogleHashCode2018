@@ -1,5 +1,6 @@
 package TuLeC.process;
 
+import TuLeC.Helper.Helper;
 import TuLeC.Obj.Car;
 import TuLeC.Obj.Ride;
 
@@ -26,18 +27,18 @@ public class MarcoProcess {
         for(Ride ride : rides) {
             boolean isAdded = false;
             for(Car car : cars) {
-                if (car.getCurrentFinalTurn() + car.getCurrentFinalPosition().getDistanceFrom(ride.startPoint)<= ride.earliestStart) {
+                //Etre arrivé quand ça commence
+                if (Helper.getCarTimeToBeginRide(car, ride) <= ride.earliestStart) {
                     car.rides.add(ride);
                     isAdded = true;
                     break;
                 }
             }
+            //Si on ne peut pas
             if (!isAdded) {
                 SortCars(cars);
                 for(Car car : cars) {
-                    if (car.getCurrentFinalTurn()
-                            + car.getCurrentFinalPosition().getDistanceFrom(ride.startPoint)
-                            + ride.startPoint.getDistanceFrom(ride.endPoint) <= ride.latestFinish) {
+                    if (Helper.getCarTimeToFinishRide(car, ride) <= ride.latestFinish) {
                         car.rides.add(ride);
                         break;
                     }
