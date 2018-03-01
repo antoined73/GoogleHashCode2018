@@ -14,9 +14,9 @@ public class FileWriter {
         this.cars = new ArrayList<Car>(cars);
     }
 
-    public void exec(){
+    public void exec(String outputPath){
         try{
-            PrintWriter writer = new PrintWriter("output.out", "UTF-8");
+            PrintWriter writer = new PrintWriter(outputPath, "UTF-8");
 
             for (Car car : cars){
                 writer.println(car.toString());
