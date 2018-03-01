@@ -10,6 +10,7 @@ public class Context {
     int numberOfRides;
     int perRideBonus;
     int numberOfSteps;
+    int id;
     List<Ride> rides = new ArrayList<Ride>();
 
 
@@ -20,10 +21,11 @@ public class Context {
         this.numberOfRides = numberOfRides;
         this.perRideBonus = perRideBonus;
         this.numberOfSteps = numberOfSteps;
+        id = 0;
     }
 
     public void AddRide(int srow, int scolumn, int frow, int fcolumn, int earliestStart, int latestFinish) {
-        rides.add(new Ride(srow,scolumn,frow,fcolumn,earliestStart,latestFinish));
+        rides.add(new Ride(id++, srow,scolumn,frow,fcolumn,earliestStart,latestFinish));
     }
 
     @Override
