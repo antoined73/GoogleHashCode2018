@@ -21,6 +21,6 @@ public class Ride {
     }
 
     public String toDebugString() {
-        return "Départ : "+startPoint+"/ Arrivée : "+endPoint+" | earliest: "+earliestStart+ " latest: "+latestFinish;
+        return id+"- Départ : "+startPoint.toDebugString()+"/ Arrivée : "+endPoint.toDebugString()+" | earliest: "+earliestStart+ " latest: "+latestFinish;
     }
 }
