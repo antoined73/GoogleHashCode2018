@@ -1,11 +1,11 @@
 package TuLeC.Obj;
 
 public class Ride {
-    Intersection startPoint;
-    Intersection endPoint;
-    int earliestStart;
-    int latestFinish;
-    int id;
+    public Intersection startPoint;
+    public Intersection endPoint;
+    public int earliestStart;
+    public int latestFinish;
+    public int id;
 
     public Ride(int id, int srow, int scolumn, int frow, int fcolumn, int earliestStart, int latestFinish) {
         this.id = id;
