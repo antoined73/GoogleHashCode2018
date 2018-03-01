@@ -1,4 +1,4 @@
-import java.awt.*;
+package TuLeC.Obj;
 
 public class Ride {
     Intersection startPoint;

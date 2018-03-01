@@ -1,3 +1,5 @@
+package TuLeC.Obj;
+
 public class Intersection {
     public int x;    // x-coordinate
     public int y;    // y-coordinate

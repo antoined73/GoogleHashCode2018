@@ -1,4 +1,7 @@
-package process;
+package TuLeC.process;
+
+import TuLeC.Obj.Car;
+import TuLeC.Obj.Ride;
 
 import java.util.List;
 

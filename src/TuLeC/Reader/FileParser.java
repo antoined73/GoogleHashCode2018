@@ -1,3 +1,7 @@
+package TuLeC.Reader;
+
+import TuLeC.Obj.Context;
+
 import java.io.*;
 
 public class FileParser {
