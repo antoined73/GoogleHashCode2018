@@ -9,6 +9,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import static TuLeC.Helper.Helper.getTimeFromStart;
+
 public class MarcoProcess {
     private List<Car> cars;
     private List<Ride> rides;
@@ -21,7 +23,7 @@ public class MarcoProcess {
     public List<Car> process(){
         Collections.sort(rides, new Comparator<Ride>() {
             public int compare(Ride o1, Ride o2) {
-                return o1.earliestStart - o2.earliestStart;
+                return getTimeFromStart(o1) - getTimeFromStart(o2);
             }
         });
         for(Ride ride : rides) {
