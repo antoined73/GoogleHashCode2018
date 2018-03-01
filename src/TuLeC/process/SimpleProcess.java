@@ -1,6 +1,7 @@
 package TuLeC.process;
 
 import TuLeC.Obj.Car;
+import TuLeC.Obj.Intersection;
 import TuLeC.Obj.Ride;
 
 import java.util.Comparator;
@@ -23,7 +24,11 @@ public class SimpleProcess {
                 if (o1.earliestStart > o2.earliestStart){
                     return 1;
                 } else if (o1.earliestStart == o2.earliestStart){
-                    return 0;
+                    if(o1.latestFinish > o2.latestFinish){
+                        return -1;
+                    }else{
+                        return 1;
+                    }
                 } else {
                     return -1;
                 }
