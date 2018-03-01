@@ -1,5 +1,3 @@
-import java.io.File;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -9,6 +7,6 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(parser.getPizza());
+        System.out.println(parser.getContext());
     }
 }

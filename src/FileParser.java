@@ -2,7 +2,7 @@ import java.io.*;
 
 public class FileParser {
     private final String filePath;
-    private  Pizza pizza;
+    private Context context;
 
     public FileParser(String s) {
         filePath = s;
@@ -20,25 +20,25 @@ public class FileParser {
         {
             if(lineNumber==0){
                 String[] array1 = myLine.split(" ");
-                if(array1.length != 4) throw new Exception("La première ligne du fichier ne contient pas chiffres séparés d'espaces.");
+                if(array1.length != 6) throw new Exception("La première ligne du fichier ne contient pas 6 chiffres séparés d'espaces.");
                 int rows = Integer.parseInt(array1[0]);
                 int columns = Integer.parseInt(array1[1]);
-                int min = Integer.parseInt(array1[2]);
-                int max = Integer.parseInt(array1[3]);
-                pizza = new Pizza(rows,columns,min,max);
+                int numberOfVehicles = Integer.parseInt(array1[2]);
+                int numberOfRides = Integer.parseInt(array1[3]);
+                int perRideBonus = Integer.parseInt(array1[4]);
+                int numberOfSteps = Integer.parseInt(array1[5]);
+                context = new Context(rows,columns,numberOfVehicles,numberOfRides,perRideBonus,numberOfSteps);
             }else{
-                if(ingredients==null){
-                    ingredients = new String[pizza.rows][pizza.columns];
-                }
-                ingredients[lineNumber-1] = myLine.split(" ");
+                //Ajouter un ride
+                context.AddRide (ingredients);
             }
             lineNumber++;
 
         }
-        pizza.AddIngredients(ingredients);
+
     }
 
-    public Pizza getPizza() {
-        return pizza;
+    public Context getContext() {
+        return context;
     }
 }
