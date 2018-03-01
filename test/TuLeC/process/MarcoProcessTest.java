@@ -1,4 +1,4 @@
-package TuLeC.Helper.process;
+package TuLeC.process;
 
 public class MarcoProcessTest {
 }

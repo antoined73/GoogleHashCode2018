@@ -1,4 +1,4 @@
-package TuLeC.Helper.obj;
+package TuLeC.obj;
 
 public class CarTest {
 }
