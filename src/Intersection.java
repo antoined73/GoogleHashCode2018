@@ -12,4 +12,8 @@ public class Intersection {
         return Math.abs(x - i2.x) + Math.abs(y - i2.y);
     }
 
+    public String toDebugString(){
+        return "("+x+","+y+")";
+    }
+
 }

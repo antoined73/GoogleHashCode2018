@@ -34,7 +34,7 @@ public class Context {
         return res.toString();
     }
 
-    public String stringDebug(){
+    public String toDebugString(){
         StringBuilder msg = new StringBuilder("Contexte : Ville " + rows + " x " + columns + ", "
                 + numberOfRides + " trajets à faire avec " + numberOfVehicles + " voitures en " + numberOfSteps + " steps.\n");
         for (Ride ride: rides) {
