@@ -1,5 +1,6 @@
 import TuLeC.Obj.Context;
 import TuLeC.Reader.FileParser;
+import TuLeC.Writer.FileWriter;
 import TuLeC.process.SimpleProcess;
 
 public class Main {
@@ -12,10 +13,10 @@ public class Main {
             SimpleProcess proc = new SimpleProcess(context.getCars(),context.getRides());
             proc.process();
 
-            System.out.println(context.toString());
+            FileWriter fileWriter = new FileWriter(context.getCars());
+            fileWriter.exec();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(parser.getContext().toDebugString());
     }
 }
