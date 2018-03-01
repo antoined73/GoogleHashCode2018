@@ -2,8 +2,6 @@ package TuLeC.Obj;
 
 import org.junit.Assert;
 
-import static org.junit.Assert.*;
-
 public class CarTest {
 
     private Car car;
