@@ -33,7 +33,7 @@ public class Runner {
         try {
             parser.exec();
             Context context = parser.getContext();
-            MarcoProcess proc = new MarcoProcess(context.getCars(),context.getRides());
+            MarcoProcess proc = new MarcoProcess(context.getCars(),context.getRides(), context);
             proc.process();
             FileWriter fileWriter = new FileWriter(context.getCars());
             fileWriter.exec(OUTPUT_FOLDER +inputFilename.replace(".in",".out"));

@@ -40,7 +40,6 @@ public class Car {
         for (Ride r : rides) {
             if(position.getDistanceFrom(r.startPoint) + total < r.earliestStart){
                 total += (r.earliestStart - total) + r.startPoint.getDistanceFrom(r.endPoint);
-                System.out.println(r.startPoint.getDistanceFrom(r.endPoint));
             }
             else{
                 total += position.getDistanceFrom(r.startPoint) + r.startPoint.getDistanceFrom(r.endPoint);

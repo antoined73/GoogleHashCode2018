@@ -2,6 +2,7 @@ package TuLeC.process;
 
 import TuLeC.Helper.Helper;
 import TuLeC.Obj.Car;
+import TuLeC.Obj.Context;
 import TuLeC.Obj.Ride;
 
 import java.util.ArrayList;
@@ -10,22 +11,21 @@ import java.util.Comparator;
 import java.util.List;
 
 import static TuLeC.Helper.Helper.getTimeFromStart;
+import static TuLeC.Helper.Helper.isTooLong;
 
 public class MarcoProcess {
     private List<Car> cars;
     private List<Ride> rides;
+    private Context context;
 
-    public MarcoProcess(List<Car> cars, List<Ride> rides){
+    public MarcoProcess(List<Car> cars, List<Ride> rides, Context context){
         this.cars = cars;
         this.rides = rides;
+        this.context = context;
     }
 
     public List<Car> process(){
-        Collections.sort(rides, new Comparator<Ride>() {
-            public int compare(Ride o1, Ride o2) {
-                return getTimeFromStart(o1) - getTimeFromStart(o2);
-            }
-        });
+
         for(Ride ride : rides) {
             boolean isAdded = false;
             for(Car car : cars) {
@@ -38,7 +38,6 @@ public class MarcoProcess {
             }
             //Si on ne peut pas
             if (!isAdded) {
-                SortCars(cars);
                 for(Car car : cars) {
                     if (Helper.getCarTimeToFinishRide(car, ride) <= ride.latestFinish) {
                         car.rides.add(ride);
@@ -67,7 +66,7 @@ public class MarcoProcess {
         rides.add(new Ride(0, 1, 2, 3, 3, 5, 8));
         rides.add(new Ride(1, 2, 2, 5, 6, 7, 10));
         rides.add(new Ride(2, 0, 2, 3, 1, 2, 6));
-        MarcoProcess marcoProcess = new MarcoProcess(cars, rides);
-        System.out.println(marcoProcess.process());
+        //MarcoProcess marcoProcess = new MarcoProcess(cars, rides);
+        //System.out.println(marcoProcess.process());
     }
 }
