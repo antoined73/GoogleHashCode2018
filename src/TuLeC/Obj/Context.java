@@ -11,6 +11,7 @@ public class Context {
     int perRideBonus;
     int numberOfSteps;
     List<Ride> rides = new ArrayList<Ride>();
+    List<Car> cars = new ArrayList<Car>();
 
 
     public Context(int rows, int columns, int numberOfVehicles, int numberOfRides, int perRideBonus, int numberOfSteps) {
@@ -20,6 +21,9 @@ public class Context {
         this.numberOfRides = numberOfRides;
         this.perRideBonus = perRideBonus;
         this.numberOfSteps = numberOfSteps;
+        for (int i =0; i< numberOfVehicles; i++){
+            cars.add(new Car());
+        }
     }
 
     public void AddRide(int srow, int scolumn, int frow, int fcolumn, int earliestStart, int latestFinish) {
@@ -43,5 +47,37 @@ public class Context {
             msg.append("\n");
         }
         return msg.toString();
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
+    public int getNumberOfVehicles() {
+        return numberOfVehicles;
+    }
+
+    public int getNumberOfRides() {
+        return numberOfRides;
+    }
+
+    public int getPerRideBonus() {
+        return perRideBonus;
+    }
+
+    public int getNumberOfSteps() {
+        return numberOfSteps;
+    }
+
+    public List<Ride> getRides() {
+        return rides;
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
