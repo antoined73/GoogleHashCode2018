@@ -31,12 +31,16 @@ public class MarcoProcess {
                     isAdded = true;
                     break;
                 }
-                if (!isAdded) {
-                    SortCars(cars);
-                    cars.get(0).rides.add(ride);
+            }
+            if (!isAdded) {
+                SortCars(cars);
+                for(Car car : cars) {
+                    if (car.getCurrentFinalTurn() + car.getCurrentFinalPosition().getDistanceFrom(ride.startPoint)<= ride.latestFinish) {
+                        car.rides.add(ride);
+                        break;
+                    }
                 }
             }
-
         }
 
         return cars;
@@ -55,9 +59,9 @@ public class MarcoProcess {
         cars.add(new Car());
         cars.add(new Car());
         List<Ride> rides = new ArrayList<Ride>();
-        rides.add(new Ride(0, 0, 0, 0, 0, 5, 0));
-        rides.add(new Ride(1, 0, 0, 0, 0, 7, 0));
-        rides.add(new Ride(2, 0, 0, 0, 0, 2, 0));
+        rides.add(new Ride(0, 1, 2, 3, 3, 5, 8));
+        rides.add(new Ride(1, 2, 2, 5, 6, 7, 10));
+        rides.add(new Ride(2, 0, 2, 3, 1, 2, 6));
         MarcoProcess marcoProcess = new MarcoProcess(cars, rides);
         System.out.println(marcoProcess.process());
     }

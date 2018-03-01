@@ -24,6 +24,9 @@ public class Car {
      * @return the position where the car will be after completing its rides
      */
     public Intersection getCurrentFinalPosition() {
+        if (rides.isEmpty()) {
+            return new Intersection(0, 0);
+        }
         return rides.get(rides.size() - 1).endPoint;
     }
 
