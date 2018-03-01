@@ -6,6 +6,7 @@ import java.util.List;
 public class Car {
     public Intersection position;
     public List<Ride> rides;
+    public int turn;
 
     public Car() {
         rides = new ArrayList<Ride>();
@@ -51,5 +52,12 @@ public class Car {
             res.append(ride.toString()).append(" ");
         }
         return res.toString();
+    }
+
+    public void addRide(Ride ride, int currentTurn){
+        this.addRide(ride);
+        this.turn = currentTurn
+                + this.position.getDistanceFrom(ride.startPoint)
+                + ride.startPoint.getDistanceFrom(ride.endPoint);
     }
 }
