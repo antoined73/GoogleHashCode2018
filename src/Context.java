@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Context {
     int rows;
@@ -7,7 +9,7 @@ public class Context {
     int numberOfRides;
     int perRideBonus;
     int numberOfSteps;
-    String[][] ingredients;
+    List<Ride> rides = new ArrayList<Ride>();
 
 
     public Context(int rows, int columns, int numberOfVehicles, int numberOfRides, int perRideBonus, int numberOfSteps) {
@@ -19,13 +21,16 @@ public class Context {
         this.numberOfSteps = numberOfSteps;
     }
 
-    public void AddRide(String[][] ingredients) {
-        this.ingredients = ingredients;
+    public void AddRide(int srow, int scolumn, int frow, int fcolumn, int earliestStart, int latestFinish) {
+        rides.add(new Ride(srow,scolumn,frow,fcolumn,earliestStart,latestFinish));
     }
 
     @Override
     public String toString(){
-        String msg = "A implementer";
+        String msg = "Contexte : Ville "+rows+" x "+columns+", "+numberOfRides+" trajets à faire avec "+numberOfVehicles+" voitures en "+numberOfSteps+" steps.\n";
+        for (Ride ride: rides) {
+            msg+=ride.toDebugString()+"\n";
+        }
         return msg;
     }
 }

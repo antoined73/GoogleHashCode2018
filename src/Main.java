@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        FileParser parser = new FileParser("ressources/medium.in");
+        FileParser parser = new FileParser("ressources/a_example.in");
         try {
             parser.exec();
         } catch (Exception e) {

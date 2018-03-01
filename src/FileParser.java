@@ -19,18 +19,25 @@ public class FileParser {
         while ( (myLine = bufRead.readLine()) != null)
         {
             if(lineNumber==0){
-                String[] array1 = myLine.split(" ");
-                if(array1.length != 6) throw new Exception("La première ligne du fichier ne contient pas 6 chiffres séparés d'espaces.");
-                int rows = Integer.parseInt(array1[0]);
-                int columns = Integer.parseInt(array1[1]);
-                int numberOfVehicles = Integer.parseInt(array1[2]);
-                int numberOfRides = Integer.parseInt(array1[3]);
-                int perRideBonus = Integer.parseInt(array1[4]);
-                int numberOfSteps = Integer.parseInt(array1[5]);
+                String[] lineArray = myLine.split(" ");
+                if(lineArray.length != 6) throw new Exception("La première ligne du fichier ne contient pas 6 chiffres séparés d'espaces.");
+                int rows = Integer.parseInt(lineArray[0]);
+                int columns = Integer.parseInt(lineArray[1]);
+                int numberOfVehicles = Integer.parseInt(lineArray[2]);
+                int numberOfRides = Integer.parseInt(lineArray[3]);
+                int perRideBonus = Integer.parseInt(lineArray[4]);
+                int numberOfSteps = Integer.parseInt(lineArray[5]);
                 context = new Context(rows,columns,numberOfVehicles,numberOfRides,perRideBonus,numberOfSteps);
             }else{
                 //Ajouter un ride
-                context.AddRide (ingredients);
+                String[] lineArray = myLine.split(" ");
+                int Srow = Integer.parseInt(lineArray[0]);
+                int Scolumn = Integer.parseInt(lineArray[1]);
+                int Frow = Integer.parseInt(lineArray[2]);
+                int Fcolumn = Integer.parseInt(lineArray[3]);
+                int earliestStart = Integer.parseInt(lineArray[4]);
+                int latestFinish = Integer.parseInt(lineArray[5]);
+                context.AddRide (Srow, Scolumn, Frow, Fcolumn, earliestStart, latestFinish);
             }
             lineNumber++;
 
