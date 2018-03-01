@@ -7,6 +7,6 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(parser.getContext());
+        System.out.println(parser.getContext().stringDebug());
     }
 }

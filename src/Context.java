@@ -38,7 +38,8 @@ public class Context {
         StringBuilder msg = new StringBuilder("Contexte : Ville " + rows + " x " + columns + ", "
                 + numberOfRides + " trajets à faire avec " + numberOfVehicles + " voitures en " + numberOfSteps + " steps.\n");
         for (Ride ride: rides) {
-            msg.append(ride.toDebugString()).append("\n");
+            msg.append(ride.toDebugString());
+            msg.append("\n");
         }
         return msg.toString();
     }

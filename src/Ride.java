@@ -14,6 +14,6 @@ public class Ride {
     }
 
     public String toDebugString() {
-        return "à faire";
+        return "Départ : "+startPoint+"/ Arrivée : "+endPoint+" | earliest: "+earliestStart+ " latest: "+latestFinish;
     }
 }
