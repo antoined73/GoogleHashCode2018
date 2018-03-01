@@ -10,7 +10,6 @@ public class Context {
     int numberOfRides;
     int perRideBonus;
     int numberOfSteps;
-    int id;
     List<Ride> rides = new ArrayList<Ride>();
     List<Car> cars = new ArrayList<Car>();
 
@@ -25,11 +24,10 @@ public class Context {
         for (int i =0; i< numberOfVehicles; i++){
             cars.add(new Car());
         }
-        id = 0;
     }
 
     public void AddRide(int srow, int scolumn, int frow, int fcolumn, int earliestStart, int latestFinish) {
-        rides.add(new Ride(id++, srow,scolumn,frow,fcolumn,earliestStart,latestFinish));
+        rides.add(new Ride(rides.size(), srow,scolumn,frow,fcolumn,earliestStart,latestFinish));
     }
 
     @Override

@@ -6,7 +6,7 @@ import TuLeC.process.SimpleProcess;
 public class Main {
 
     public static void main(String[] args) {
-        FileParser parser = new FileParser("ressources/a_example.in");
+        FileParser parser = new FileParser("ressources/e_high_bonus.in");
         try {
             parser.exec();
             Context context = parser.getContext();
